@@ -23,13 +23,12 @@ a:hover {
     border-radius: 0;
     background: #000000;
     margin-bottom: 0;
-    height: 50px;
 }
 
 .navbar-default .navbar-nav>li>a{
     color: #ffffff;
+    background: #000000;
     -webkit-transition: all 0.4s ease-in-out;
-  /*  font: 300 20px/1.7 'Gotham SSm 3r', 'Gotham SSm A', 'Gotham SSm B', 'helvetica neue', freesans, arial, sans-serif;*/
 }
 
 .navbar-default:hover .navbar-nav>li>a:hover{
@@ -52,7 +51,7 @@ a:hover {
     border: 0;
     border-top:none ;
     border-radius: 0;
-   /* box-shadow: none;*/
+    box-shadow: none;
 }
 
 .dropdown-menu>li>a{
