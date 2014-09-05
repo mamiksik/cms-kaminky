@@ -26,6 +26,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
 
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/flickerplate.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/timeline.css">
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 
     {block head}{/block}
@@ -71,8 +72,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="#">O nás</a></li>
-                <li><a href="#">Aktuality</a></li>
+                <li><a n:href="Homepage:default">O nás</a></li>
+                <li><a n:href="Aktuality:default">Aktuality</a></li>
                 <li><a href="#">Kontakty</a></li>
 
                 <li class="dropdown">
@@ -126,6 +127,14 @@
         <div class="col-md-5">
             <div class="hr"></div>
             <div class="hr"></div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                2%
+            </div>
         </div>
 
     </div>

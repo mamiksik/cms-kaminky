@@ -12,18 +12,17 @@ use Nette,
 class AktualityPresenter extends BasePresenter
 {
 
-    /*
-        public $imageRepository;
+        public $articlesRepository;
 
 
-        public function injectImageRepository(\ImageRepository $imageRepository)
+        public function injectArtislesRepository(\ArticlesRepository $articlesRepository)
         {
-            $this->imageRepository = $imageRepository;
-        }*/
+            $this->articlesRepository = $articlesRepository;
+        }
 
     public function renderDefault()
     {
-        $this->template->anyVariable = 'any value';
+        $this->template->articles = $this->articlesRepository->fetchAllFront();
     }
 
 }

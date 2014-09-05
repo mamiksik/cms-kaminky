@@ -28,3 +28,11 @@ $(function(){
 $(document).ready(function() {
     $('.tooltip_link').tooltip();
 });
+
+
+
+$(document).ready(function(){
+    $('.status').click(function() { $('.arrow').css("left", 0);});
+    $('.photos').click(function() { $('.arrow').css("left", 80);});
+    $('.videos').click(function() { $('.arrow').css("left", 160);});
+});
