@@ -1,59 +1,58 @@
 {block content}
-    <div class="container timeline-container">
+    <div class="container-fluid timeline-container">
 
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2 class="text-center"> Responsive facebook style timeline design - wsnippets.com</h2>
-                <ul class="timeline">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="text-center"> Aktuality - Timeline</h2>
+                    <ul class="timeline">
 
-                    {foreach $articles as $article}
+                        {foreach $articles as $article}
 
-                    {if $iterator->odd}
-                    <li>
-                        <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-time invert" title="Now" id=""></i></a></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-header">
-                                <div class="row">
-                                    <div class="col-xs-8">
-                                        {$article->name}
-                                        {$article->author}
+                            {if $iterator->odd}
+                                <li>
+                                    <div class="timeline-badge primary"><a><i class="fa fa-align-justify fa-3x"></i></a></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-header">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <h2> {$article->name} </h2>
+                                                    {$article->author}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>
+                                                {$article->content}
+                                            </p>
+                                        </div>
+
                                     </div>
-                                </div>
-                            </div>
-                            <div class="timeline-body">
-                                <p>
-                                    {$article->content}
-                                </p>
-                            </div>
+                                </li>
+                            {/if}
 
-                        </div>
-                    </li>
-                    {/if}
-
-                        {if $iterator->even}
-                            <li class="timeline-inverted">
-                            <div class="timeline-badge primary" ><a title="11 hours ago via Twitter"><i class="glyphicon glyphicon-time invert" id=""></i></a></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-header">
-                                <div class="row">
-                                    <div class="col-xs-8">
-                                        {$article->name}
-                                        {$article->author}
+                            {if $iterator->even}
+                                <li class="timeline-inverted">
+                                    <div class="timeline-badge primary"><a><i class="fa fa-align-justify fa-3x"></i></a></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-header">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <h2> {$article->name} </h2>
+                                                    {$article->author}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>
+                                                {$article->content}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="timeline-body">
-                            <p>
-                                {$article->content}
-                            </p>
-                            </div>
-                        </div>
-                    </li>
-                    {/if}
-                    {/foreach}
-                </ul>
+                                </li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-
 {/block}
