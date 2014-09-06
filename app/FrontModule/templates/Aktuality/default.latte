@@ -1,6 +1,6 @@
 {block content}
     <div class="container-fluid timeline-container">
-
+        <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <h2 class="text-center"> Aktuality - Timeline</h2>
@@ -8,37 +8,36 @@
 
                         {foreach $articles as $article}
 
-                            {if $iterator->odd}
-                                <li>
-                                    <div class="timeline-badge primary"><a><i class="fa fa-align-justify fa-3x"></i></a></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-header">
-                                            <div class="row">
-                                                <div class="col-xs-8">
-                                                    <h2> {$article->name} </h2>
-                                                    {$article->author}
-                                                </div>
-                                            </div>
+                            {if $iterator->Odd}
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge primary"><a><div class="circle"> {$article->created_at|date:'n.'}</div></a></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-header">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <a n:href="article $article->id"><h2>{$article->name}</h2></a>
+                                            {$article->author}
+                                            {$article->created_at|date:'%d. %m. %Y'}
                                         </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                {$article->content}
-                                            </p>
-                                        </div>
-
                                     </div>
-                                </li>
-                            {/if}
-
-                            {if $iterator->even}
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        {$article->content}
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                            {else}
                                 <li class="timeline-inverted">
-                                    <div class="timeline-badge primary"><a><i class="fa fa-align-justify fa-3x"></i></a></div>
+                                    <div class="timeline-badge primary"><a><div class="circle even"> {$article->created_at|date:'n.'}</div></a></div>
                                     <div class="timeline-panel">
                                         <div class="timeline-header">
                                             <div class="row">
                                                 <div class="col-xs-8">
-                                                    <h2> {$article->name} </h2>
+                                                    <a n:href="article $article->id"><h2>{$article->name}</h2></a>
                                                     {$article->author}
+                                                    {$article->created_at|date:'%d. %m. %Y'}
                                                 </div>
                                             </div>
                                         </div>
@@ -50,9 +49,12 @@
                                     </div>
                                 </li>
                             {/if}
+
+
                         {/foreach}
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
 {/block}
