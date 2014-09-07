@@ -143,7 +143,7 @@
 
 <footer>
     <div class="container slide-text">
-        <h2>"S pomocí knih se mnozí stávají učenými i mimo školu.<br> Bez knih pk nebývá učený nikdo ani ve škole."<a target="_blank" href="http://www.google.com">Go to Google</a></h2>
+        <h2>"S pomocí knih se mnozí stávají učenými i mimo školu.<br> Bez knih pk nebývá učený nikdo ani ve škole."</h2>
 
         <div class="col-md-5">
             <div class="hr"></div>
@@ -160,8 +160,8 @@
         <div class="clearfix"></div>
 
         <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                2%
+            <div class="progress-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                8%
             </div>
         </div>
 
@@ -187,3 +187,27 @@
 {/block}
 </body>
 </html>
+{define paginator}
+    <div class="text-center">
+        <ul class="pager">
+            <li n:class="$paginator->isFirst() ? disabled"><a n:href="this page => $paginator->page-1">&laquo;</a></li>
+            {var $dots = false;}
+            {var $a = array()}
+
+            {for $j = 1; $j <= 5; $j++}
+                {? $a[] = (int) ($j * $paginator->getLastPage() / 5)}
+            {/for}
+
+            {for $i = $paginator->getFirstPage(); $i <= $paginator->getLastPage(); $i++}
+                {if $paginator->getPage() == $i}
+                    <li class="active"><a n:href="this">{$i}</a></li>{? $dots = true}
+                {elseif $paginator->getFirstPage() == $i || $paginator->getLastPage() == $i || abs($i - $paginator->getPage()) <= 3}
+                    <li><a n:href="this page => $i">{$i}</a></li>{? $dots = true}
+                {elseif $dots == true}
+                    <li class="disabled"><a>...</a></li>{?$dots = false;}
+                {/if}
+            {/for}
+            <li n:class="$paginator->isLast() ? disabled"><a n:href="this page => $paginator->page+1">&raquo;</a></li>
+        </ul>
+    </div>
+{/define}

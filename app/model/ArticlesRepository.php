@@ -3,11 +3,18 @@
 class ArticlesRepository extends Repository {
 
 
-    public function fetchAllFront()
+    public function fetchAllFront($paginator)
     {
         return $this->connection->table('articles')
             ->where("hide", "0")
+            ->limit($paginator->getLength(), $paginator->getOffset())
             ->order('created_at DESC');
+    }
+
+    public function count()
+    {
+        return $this->connection->table('articles')
+            ->count("*");
     }
 
     public function fetchAll()

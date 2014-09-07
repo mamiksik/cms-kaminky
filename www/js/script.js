@@ -26,10 +26,16 @@ $(function(){
 
 
 $(document).ready(function() {
-    $('.tooltip_link').tooltip();
+    $('tip').tooltip();
 });
 
-
+$(function(){
+    $("[data-tooltip]").tooltip({ html: true });
+    $(".alert").alert();
+    $("[data-confirm]").on('click', function(){
+        return confirm($(this).data('confirm'));
+    });
+});
 
 $(document).ready(function(){
     $('.status').click(function() { $('.arrow').css("left", 0);});

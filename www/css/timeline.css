@@ -57,7 +57,7 @@ body {
     position: relative;
     /*-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);*/
-    box-shadow: 0 3px 0 #d7e4ed;
+    box-shadow: 0 3px 0 #acafb5;
 }
 
 .timeline > li > .timeline-panel:before {
@@ -145,9 +145,11 @@ body {
     padding:20px;
     margin-bottom: 0;
     background: #fff;
+    text-align: justify;
 }
 .timeline-body > p + p {
     margin-top: 5px;
+
 }
 .timeline-footer{
     padding:20px;
@@ -268,8 +270,8 @@ body {
     }
     ul.timeline > li > .timeline-badge {
         left: 28px;
-        margin-left: -12px;
-        top: 20px
+        margin-left: -14px;
+        top: 7px
     }
     ul.timeline > li > .timeline-panel {
         float: right;
@@ -296,30 +298,44 @@ body {
 
 .circle
 {
-    width:50px;
-    height:50px;
-    border-radius:250px;
+   /* width:90px;
+    height:90px;*/
+    border-radius:5px;
     font-size:25px;
     color:#fff;
-    line-height:50px;
+    line-height:25px;
     text-align:center;
     background:#008AD1;
+    padding: 10px;
+    display: block;
 }
 
 .even{
     background:#8AB830 ;
 }
-/*
-.circle:nth-child(odd)
-{
-    background:#8AB830 !important;
+
+.mounth{
+
 }
 
-.timeline-badge > a {
-    color: #008AD1 !important;
+.pager li>a{
+    background: #FA678D;
+    color: #ffffff;
 }
-*/
 
+.pager .active a{
+    background: #008AD1;
+}
+
+.pager .disabled>a{
+    background:#FA678D;
+    color: #ffffff;
+}
+
+.pager li>a:hover,.pager .disabled>a:hover{
+    background: #008AD1;
+    color: #ffffff;
+}
 
 .timeline-badge a:hover {
     color: #000000 !important;

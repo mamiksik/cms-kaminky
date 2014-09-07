@@ -10,7 +10,7 @@
 
                             {if $iterator->Odd}
                         <li class="timeline-inverted">
-                            <div class="timeline-badge primary"><a><div class="circle"> {$article->created_at|date:'n.'}</div></a></div>
+                            <div class="timeline-badge primary"><a><span class="circle">{$article->created_at|date:'%e.'}<br> <span class="mounth">{$article->created_at|date:'%b'}</span></span></a></div>
                             <div class="timeline-panel">
                                 <div class="timeline-header">
                                     <div class="row">
@@ -23,14 +23,14 @@
                                 </div>
                                 <div class="timeline-body">
                                     <p>
-                                        {$article->content}
+                                        {$article->content|truncate:400}
                                     </p>
                                 </div>
                             </div>
                         </li>
                             {else}
                                 <li class="timeline-inverted">
-                                    <div class="timeline-badge primary"><a><div class="circle even"> {$article->created_at|date:'n.'}</div></a></div>
+                                    <div class="timeline-badge primary"><a><span class="circle even">{$article->created_at|date:'%e.'}<br><span class="mounth">{$article->created_at|date:'%b'}</span></span></a></div>
                                     <div class="timeline-panel">
                                         <div class="timeline-header">
                                             <div class="row">
@@ -43,16 +43,15 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p>
-                                                {$article->content}
+                                                {$article->content|truncate:400}
                                             </p>
                                         </div>
                                     </div>
                                 </li>
                             {/if}
-
-
                         {/foreach}
                     </ul>
+                    {include paginator, paginator => $paginator}
                 </div>
             </div>
         </div>
