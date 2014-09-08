@@ -12,6 +12,7 @@ body {
     list-style: none;
     padding: 20px 0 20px;
     position: relative;
+    margin-top: 14px;
 }
 .timeline:before {
     top: 0;
@@ -87,6 +88,7 @@ body {
   /*  width: 24px;
     height: 24px;*/
     line-height: 50px;
+    width: 54px;
     font-size: 1.4em;
     text-align: center;
     position: absolute;
@@ -306,7 +308,8 @@ body {
     line-height:25px;
     text-align:center;
     background:#008AD1;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: block;
 }
 
@@ -315,12 +318,16 @@ body {
 }
 
 .mounth{
-
+    font-size: .75em;
+    font-family: 'NovecentowideNormalRegular', Arial, serif;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 .pager li>a{
     background: #FA678D;
     color: #ffffff;
+    border: none;
 }
 
 .pager .active a{
@@ -350,7 +357,8 @@ body {
 
     ul.timeline > li > .timeline-badge{
         margin-left: -13px;
-        top: 24px;
+        top: 10px;
+        top: 10px;
     }
 }
 

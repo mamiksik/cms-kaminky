@@ -193,6 +193,10 @@ footer{
     text-align: center;
 }
 
+.slide-text .fa{
+    padding-top: 15px;
+}
+
 footer .slide-text h2{
     font-family: 'Finger Paint';
    font-size: 30px;
@@ -227,7 +231,9 @@ footer .slide-text h2{
         margin-top: 7px;
     }
 
-    .fa { line-height: inherit;}
+    .fa {
+        ine-height: inherit;
+    }
 
 /*
 .sidebar-nav {
@@ -273,6 +279,18 @@ footer .slide-text h2{
 }*/
 }
 
+@media (max-width: 767px){
+    .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: #ffffff;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
 /*
 .navbar{
     border: none;

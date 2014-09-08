@@ -1,6 +1,6 @@
 <?php
 
-class ArticlesRepository extends Repository {
+class AktualityRepository extends Repository {
 
 
     public function fetchAllFront($paginator)

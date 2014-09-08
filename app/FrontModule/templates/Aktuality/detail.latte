@@ -1,0 +1,47 @@
+{block content}
+<div class="container-fluid timeline-container">
+    <div class="container">
+        <div class="text-center">
+            <ul class="pager">
+                <li class=""><a href="javascript:history.go(-1)">Zpět na Aktiality</a></li>
+            </ul>
+        </div>
+        {if $article == "0"}
+            <img src="http://www.destructoid.com/elephant/ul/111835-ms.jpg">
+            <div class="alert alert-danger" role="alert">
+                <a href="#" class="alert-link">Jejda, to co hledáte tu není</a>
+            </div>
+        {else}
+            <ul class="timeline">
+                <li class="timeline-inverted">
+                    <div class="timeline-badge primary"><a><span class="circle">{$article->created_at|date:'%e.'}<br><span class="mounth">{$article->created_at|date:'%b'}</span></span></a></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-header">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h2>{$article->name}</h2>
+                                    <i class="fa fa-user"></i> {$article->author}    <i
+                                            class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                {$article->content}
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        {/if}
+
+         <div class="text-center">
+            <ul class="pager">
+                <li class=""><a href="javascript:history.go(-1)">Zpět na Aktiality</a></li>
+           </ul>
+        </div>
+    </div>
+</div>
