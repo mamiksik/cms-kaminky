@@ -30,17 +30,23 @@ class AktualityPresenter extends BasePresenter
         $paginator->itemCount = $this->articlesRepository->count();
         $paginator->itemsPerPage = 15;
         $paginator->page = $page;
-        if ($paginator->page !== $page) {
+
+        if ($paginator->page !== $page)
+        {
             $this->redirect('this', array('page' => $paginator->page));
         }
+
+        $this->template->page = $page;
         $this->template->paginator = $paginator;
         $this->template->articles = $this->articlesRepository->fetchAllFront($paginator);
+
     }
 
-    public function renderDetail($id = 1)
+    public function renderDetail($id = 1, $page)
     {
 ;
         $this->template->article = $this->articlesRepository->getById($id);
+        $this->template->page = $page;
 
         if(!$this->template->article){
             $this->template->article = 0;

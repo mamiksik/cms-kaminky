@@ -16,7 +16,8 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 		TABLE_NAME = 'users',
 		COLUMN_ID = 'id',
 		COLUMN_NAME = 'username',
-		COLUMN_PASSWORD_HASH = 'password',
+        COLUMN_EMAIL = 'email',
+        COLUMN_PASSWORD_HASH = 'password',
 		COLUMN_ROLE = 'role';
 
 
@@ -65,10 +66,11 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 	 * @param  string
 	 * @return void
 	 */
-	public function add($username, $password)
+	public function add($username, $password, $email)
 	{
 		$this->database->table(self::TABLE_NAME)->insert(array(
 			self::COLUMN_NAME => $username,
+            self::COLUMN_EMAIL => $email,
 			self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
 		));
 	}

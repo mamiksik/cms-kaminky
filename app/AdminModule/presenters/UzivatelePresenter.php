@@ -9,7 +9,7 @@ use Nette,
 /**
  * Homepage presenter.
  */
-class HomepagePresenter extends SecuredPresenter
+class UzivatelePresenter extends SecuredPresenter
 {
 
 	public function renderDefault()

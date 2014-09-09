@@ -16,7 +16,7 @@
                                 <div class="timeline-header">
                                     <div class="row">
                                         <div class="col-xs-8">
-                                            <a n:href="detail $article->id"><h2>{$article->name}</h2></a>
+                                            <a n:href="detail $article->id, $page"><h2>{$article->name}</h2></a>
                                             <i class="fa fa-user"></i> {$article->author}    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
                                         </div>
                                     </div>
@@ -35,7 +35,7 @@
                                         <div class="timeline-header">
                                             <div class="row">
                                                 <div class="col-xs-8">
-                                                    <a n:href="detail $article->id"><h2>{$article->name}</h2></a>
+                                                    <a n:href="detail $article->id, $page"><h2>{$article->name}</h2></a>
                                                     <i class="fa fa-user"></i> {$article->author}    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
                                                 </div>
                                             </div>
