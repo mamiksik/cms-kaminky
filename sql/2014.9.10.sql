@@ -5,17 +5,6 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `articles`;
-CREATE TABLE `articles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `content` text NOT NULL,
-  `hide` tinyint(4) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 INSERT INTO `articles` (`id`, `name`, `author`, `created_at`, `content`, `hide`) VALUES
 (1,	'Ahoj',	'hh',	'2014-09-07 18:49:13',	'… hdklfjlgkhjhljdhk;ldfhljdh;fldkjhk;dfljhklghl;djfhdhola škola na nás volá,\r\na my jdeme, mámo, táto,\r\nať je zima nebo bláto … (František Hrubín)\r\n\r\nPo krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost.\r\n… hola škola na nás volá, a my jdeme, mámo, táto, ať je zima nebo bláto … (František Hrubín) Po krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost. Organizace prvního týdne probíhá následujícím způsobem: Pondělí: první i druhý stupeň 1 vyučovací hodina Úterý: první stupeň 4 a druhý stupeň 5 třídnických hodin Středa – pátek: dle rozvrhu bez odpoledního vyučování Prvňáci: Pondělí: 1 vyučovací hodiny Úterý: 2 vyučovací hodiny Středa – pátek 4 vyučovací hodiny PROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)… hola škola na nás volá, a my jdeme, mámo, táto, ať je zima nebo bláto … (František Hrubín) Po krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost. Organizace prvního týdne probíhá následujícím způsobem: Pondělí: první i druhý stupeň 1 vyučovací hodina Úterý: první stupeň 4 a druhý stupeň 5 třídnických hodin Středa – pátek: dle rozvrhu bez odpoledního vyučování Prvňáci: Pondělí: 1 vyučovací hodiny Úterý: 2 vyučovací hodiny Středa – pátek 4 vyučovací hodiny PROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)… hola škola na nás volá, a my jdeme, mámo, táto, ať je zima nebo bláto … (František Hrubín) Po krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost. Organizace prvního týdne probíhá následujícím způsobem: Pondělí: první i druhý stupeň 1 vyučovací hodina Úterý: první stupeň 4 a druhý stupeň 5 třídnických hodin Středa – pátek: dle rozvrhu bez odpoledního vyučování Prvňáci: Pondělí: 1 vyučovací hodiny Úterý: 2 vyučovací hodiny Středa – pátek 4 vyučovací hodiny PROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)\r\nOrganizace prvního týdne probíhá následujícím způsobem:\r\nPondělí: první i druhý stupeň 1 vyučovací hodina\r\nÚterý: první stupeň 4 a druhý stupeň 5 třídnických hodin\r\nStředa – pátek: dle rozvrhu bez odpoledního vyučování\r\n\r\nPrvňáci:\r\nPondělí: 1 vyučovací hodiny\r\nÚterý: 2 vyučovací hodiny\r\nStředa – pátek 4 vyučovací hodiny\r\n\r\nPROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)',	0),
 (3,	'Ahoj',	'',	'2014-04-07 11:08:21',	'… hola škola na nás volá,\r\na my jdeme, mámo, táto,\r\nať je zima nebo bláto … (František Hrubín)\r\n\r\nPo krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost.\r\n\r\nOrganizace prvního týdne probíhá následujícím způsobem:\r\nPondělí: první i druhý stupeň 1 vyučovací hodina\r\nÚterý: první stupeň 4 a druhý stupeň 5 třídnických hodin\r\nStředa – pátek: dle rozvrhu bez odpoledního vyučování\r\n\r\nPrvňáci:\r\nPondělí: 1 vyučovací hodiny\r\nÚterý: 2 vyučovací hodiny\r\nStředa – pátek 4 vyučovací hodiny\r\n\r\nPROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)',	0),
@@ -42,18 +31,37 @@ INSERT INTO `articles` (`id`, `name`, `author`, `created_at`, `content`, `hide`)
 (62,	'Ahoj',	'',	'2014-07-07 11:08:21',	'… hola škola na nás volá,\r\na my jdeme, mámo, táto,\r\nať je zima nebo bláto … (František Hrubín)\r\n\r\nPo krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost.\r\n\r\nOrganizace prvního týdne probíhá následujícím způsobem:\r\nPondělí: první i druhý stupeň 1 vyučovací hodina\r\nÚterý: první stupeň 4 a druhý stupeň 5 třídnických hodin\r\nStředa – pátek: dle rozvrhu bez odpoledního vyučování\r\n\r\nPrvňáci:\r\nPondělí: 1 vyučovací hodiny\r\nÚterý: 2 vyučovací hodiny\r\nStředa – pátek 4 vyučovací hodiny\r\n\r\nPROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)',	0),
 (63,	'Ahoj',	'last last',	'2014-11-07 12:45:00',	'… hola škola na nás volá,\r\na my jdeme, mámo, táto,\r\nať je zima nebo bláto … (František Hrubín)\r\n\r\nPo krásných prázdninách se děti vrací zpět do školy, aby dalších deset měsíců opět získávaly vědomosti, poznatky a učily se pro svoji budoucnost.\r\n\r\nOrganizace prvního týdne probíhá následujícím způsobem:\r\nPondělí: první i druhý stupeň 1 vyučovací hodina\r\nÚterý: první stupeň 4 a druhý stupeň 5 třídnických hodin\r\nStředa – pátek: dle rozvrhu bez odpoledního vyučování\r\n\r\nPrvňáci:\r\nPondělí: 1 vyučovací hodiny\r\nÚterý: 2 vyučovací hodiny\r\nStředa – pátek 4 vyučovací hodiny\r\n\r\nPROVOZ ŠKOLNÍ DRUŽINY BĚŽÍ DLE BĚŽNÉHO ŘÁDU ŠD, (6.30 – 17.00)',	0);
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `ip_list` (`id`, `ip`, `created_at`) VALUES
+(50,	'localhost',	'2014-09-10 20:54:00'),
+(51,	'localhost',	'2014-09-10 20:54:00'),
+(52,	'localhost',	'2014-09-10 20:54:00'),
+(53,	'localhost',	'2014-09-10 20:54:00'),
+(54,	'localhost',	'2014-09-10 20:54:00'),
+(55,	'localhost',	'2014-09-10 20:54:18'),
+(56,	'localhost',	'2014-09-10 20:54:19'),
+(57,	'localhost',	'2014-09-10 20:54:19'),
+(58,	'localhost',	'2014-09-10 20:54:19'),
+(59,	'localhost',	'2014-09-10 20:54:20'),
+(60,	'localhost',	'2014-09-10 20:55:13'),
+(61,	'localhost',	'2014-09-10 20:55:13'),
+(62,	'localhost',	'2014-09-10 20:55:14'),
+(63,	'localhost',	'2014-09-10 20:55:14'),
+(64,	'localhost',	'2014-09-10 20:55:15'),
+(65,	'localhost',	'2014-09-10 20:55:15'),
+(66,	'localhost',	'2014-09-10 20:55:15'),
+(67,	'localhost',	'2014-09-10 20:55:22'),
+(68,	'localhost',	'2014-09-10 20:55:23'),
+(69,	'localhost',	'2014-09-10 20:55:23'),
+(70,	'localhost',	'2014-09-10 20:55:23'),
+(71,	'localhost',	'2014-09-10 20:55:24'),
+(72,	'localhost',	'2014-09-10 20:55:24'),
+(73,	'localhost',	'2014-09-10 20:55:24'),
+(74,	'localhost',	'2014-09-10 20:55:25'),
+(75,	'localhost',	'2014-09-10 20:55:25'),
+(76,	'localhost',	'2014-09-10 20:55:41');
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(5,	'admin',	'',	'$2y$10$cQJJAQGo1870Si2LTwTRcudd12frOj3d7dnB2p76xtlVp/JIO2hru',	'admin'),
-(6,	'a',	'test@test.cz',	'$2y$10$Gj8owTKvg635QamzoEJlv.QveT1i56zQzV.rG3AiirMHy5YfYxrqS',	'registered');
+INSERT INTO `users` (`id`, `username`, `realname`, `email`, `password`, `role`) VALUES
+(10,	'admin',	'admin2',	'admin',	'$2y$10$bVKgwWy2I2R4gu9PZPECEecalvkUnZg12aaPdWq4eR2nxcXcd030K',	'admin'),
+(12,	'red',	'red',	'ma',	'$2y$10$fqrqQmCxAc0eBSNBeGHQIOBHICgC9PP4SXILXf5Mvwrpa7nkqSRBe',	'registred');
 
--- 2014-09-10 05:23:37
+-- 2014-09-10 20:57:06

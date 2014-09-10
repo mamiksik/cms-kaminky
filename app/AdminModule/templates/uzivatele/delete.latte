@@ -1,5 +1,5 @@
 {block content}
-
+{if $user->isInRole('admin')}
 <div class="container">
     <div class="page-header">
         {block title}  <h1> Smazat{/block}</h1>
@@ -17,5 +17,10 @@
 
     {else}
         <p>Nemůžu nalézt uživatele</p>
+    {/if}
+    {else}
+    <div class="container">
+        <div class="alert alert-warning" role="alert">Nemáš dostatečné oprávnění pro vstup do této sekce!</div>
+    </div>
     {/if}
 </div>
