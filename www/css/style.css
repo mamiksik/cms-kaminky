@@ -140,6 +140,23 @@ a:hover {
     text-align: center;
 }
 
+.white h2, .white li{
+    color: #8ab830 !important;
+}
+
+.box_inner form{
+    text-align: left;
+}
+
+.box_inner form input{
+    height: 38px;
+}
+
+.box_inner .form-horizontal .form-group {
+     margin-right: 0;
+     margin-left: 0;
+}
+
 .slide-text{
     padding: 35px;
 }

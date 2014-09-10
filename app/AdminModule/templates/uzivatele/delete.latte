@@ -1,0 +1,21 @@
+{block content}
+
+<div class="container">
+    <div class="page-header">
+        {block title}  <h1> Smazat{/block}</h1>
+    </div>
+
+
+
+    {if $userDelete}
+        <p>Opravdu chcete smazat uživatele ‘{$userDelete->username}’({$userDelete->realname})?</p>
+
+        {form deleteForm class=>'form-signin', role=>'form'}
+        {input delete class=>'btn btn-danger'}
+        {input cancel, class=>'btn btn-info '}
+        {/form}
+
+    {else}
+        <p>Nemůžu nalézt uživatele</p>
+    {/if}
+</div>

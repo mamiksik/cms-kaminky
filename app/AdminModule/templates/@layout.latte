@@ -24,7 +24,6 @@
 <body>
 	<script> document.documentElement.className+=' js' </script>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
     {if $user->loggedIn}
         <nav class="navbar navbar-default navbar" role="navigation">
@@ -45,30 +44,21 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         {if $user->isInRole('admin')}
-                        <li> <a n:href="uzivatele:default">Uživatelé(can see only admin)</a></li>
+                        <li {ifCurrent uzivatele:default}class="active"{/ifCurrent}> <a n:href="uzivatele:default">Uživatelé(can see only admin)</a></li>
                         {/if}
                         <li><a n:href="Sign:out">Odhlásit</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-
-
+        <div class="container">
+            <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
+        </div>
 
         {include content}
 
     {/if}
 
-    {if $user->loggedIn}
-    {if $user->isInRole('admin')}
-        <a n:href="Page:">Page++</a> (can see only admin) |
-    {/if}
-    <a n:href="Page:">Page--</a> (can see everyone) |
-    logged as <em>{$user->getIdentity()->login}</em> (<a n:href="logout!">logout</a>)
-
-    {else}
-    <p>You are not logged in.</p>
-    {/if}
 
 	{block scripts}
 	<script src="{$basePath}/js/jquery.js"></script>

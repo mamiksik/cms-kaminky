@@ -22,6 +22,7 @@ nette:
 
 services:
 	aktuality: AktualityRepository
+	users: UzivateleRepository
 	- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter

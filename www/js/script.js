@@ -2,7 +2,7 @@ $(function(){
 
     var $window = $(window);
     var scrollTime = 0.1;
-    var scrollDistance = 70;
+    var scrollDistance = 270;
 
     $window.on("mousewheel DOMMouseScroll", function(event){
 
@@ -42,3 +42,41 @@ $(document).ready(function(){
     $('.photos').click(function() { $('.arrow').css("left", 80);});
     $('.videos').click(function() { $('.arrow').css("left", 160);});
 });
+
+
+var myCenter = new google.maps.LatLng(49.177517, 16.558834);
+
+function initialize()
+{
+    var mapOpt = {
+        center: myCenter,
+        zoom: 18,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapOpt);
+
+    var marker = new google.maps.Marker({
+        position: myCenter,
+        title:'Click to zoom'
+    });
+
+    marker.setMap(map);
+
+    google.maps.event.addListener(marker,'click',function() {
+        map.setZoom(18);
+        map.setCenter(marker.getPosition());
+    });
+
+    google.maps.event.addListener(map,'center_changed',function() {
+        // 3 seconds after the center of the map has changed, pan back to the marker
+        window.setTimeout(function() {
+            map.panTo(marker.getPosition());
+        },9000);
+    });
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+

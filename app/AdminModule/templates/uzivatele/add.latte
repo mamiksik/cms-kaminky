@@ -1,0 +1,57 @@
+{block content}
+
+<div class="container">
+    <div class="page-header">
+        {block title}  <h1>Přidání{/block}</h1>
+    </div>
+
+
+    {form userForm class=>'form-horizontal', role=>'form'}
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Uživatelské jméno:</label>
+
+            <div class="col-sm-10">
+                {input username class=>'form-control'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Reálné jméno:</label>
+
+            <div class="col-sm-10">
+                {input realname class=>'form-control'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email:</label>
+
+            <div class="col-sm-10">
+                {input email class=>'form-control'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Heslo:</label>
+
+            <div class="col-sm-10">
+                {input password class=>'form-control'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Oprávnění:</label>
+
+            <div class="col-sm-10">
+                {input role class=>'form-control'}
+            </div>
+        </div>
+
+    {input save class=>'btn btn-success'}
+    {input cancel, class=>'btn btn-info '}
+
+    {/form}
+
+</div>
+{/block}
