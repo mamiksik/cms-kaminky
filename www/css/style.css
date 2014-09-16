@@ -4,6 +4,10 @@ a {
     cursor: pointer;
 }
 
+ul{
+    list-style: none;
+}
+
 .header .contact {
     font-size: 15px;
     text-align: center;
@@ -99,6 +103,10 @@ a:hover {
 
 .media:first-child{
     margin-top: 15px;
+}
+
+.info-head{
+    background: #ffffff;
 }
 
 .media{
@@ -200,6 +208,38 @@ a:hover {
 
 .secound{
     background-image: url("http://www.skolaservis.sk/wp-content/uploads/2013/09/Elementary-Classroom.jpg");
+}
+
+.wave{
+    background-image: url("../images/wave1.png");
+    background-repeat: repeat-x;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 180px;
+    z-index: 12;
+    -webkit-animation: wave-animation1 8.7s infinite linear; /* Safari 4+ */
+    -moz-animation:    wave-animation1 8.7s infinite linear; /* Fx 5+ */
+    -o-animation:      wave-animation1 8.7s infinite linear; /* Opera 12+ */
+    animation:         wave-animation1 8.7s infinite linear;
+}
+
+@-webkit-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 932px 0; }
+}
+@-moz-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 932px 0; }
+}
+@-o-keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 932px 0; }
+}
+@keyframes wave-animation1 {
+    0%   { background-position: 0 0; }
+    100% { background-position: 932px 0; }
 }
 
 footer{

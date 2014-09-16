@@ -1,11 +1,11 @@
 <?php
 
-class AktualityRepository extends Repository {
+class StrankyRepository extends Repository {
 
 
     public function fetchAllFront($paginator)
     {
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->where("hide", "0")
             ->limit($paginator->getLength(), $paginator->getOffset())
             ->order('created_at DESC');
@@ -13,46 +13,39 @@ class AktualityRepository extends Repository {
 
     public function count()
     {
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->count("*");
     }
 
     public function fetchAll()
     {
-        return iterator_to_array($this->connection->table('articles')
+        return iterator_to_array($this->connection->table('pages')
             ->order('created_at ASC'));
     }
 
     public function getById($id)
     {
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->where("id", $id)
             ->fetch();
     }
 
     //admin
-    public function fetchAllAdmin($paginator)
-    {
-        return $this->connection->table('articles')
-            ->limit($paginator->getLength(), $paginator->getOffset())
-            ->order('created_at DESC');
-    }
-
     public  function  deleteById($id)
     {
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->where('id', $id)
             ->delete();
     }
 
     public function insert($values){
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->insert($values);
     }
 
     public function updateById($id, $values)
     {
-        return $this->connection->table('articles')
+        return $this->connection->table('pages')
             ->where("id", $id)
             ->Update($values);
     }

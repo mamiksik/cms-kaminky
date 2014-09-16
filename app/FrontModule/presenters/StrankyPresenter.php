@@ -7,22 +7,16 @@ use \Nette,
     \Nette\Utils\Paginator;
 
 
-
-
-/**
- * Homepage presenter.
- */
-class AktualityPresenter extends BasePresenter
+class StrankyPresenter extends BasePresenter
 {
-
-    public $articlesRepository;
+    public $strankyRepository;
     public $uzivateleRepository;
     public $error;
 
 
-    public function injectAktualityRepository(\AktualityRepository $aktualityRepository)
+    public function injectStrankyRepository(\StrankyRepository $strankyRepository)
     {
-        $this->articlesRepository = $aktualityRepository;
+        $this->strankyRepository = $strankyRepository;
     }
 
     public function injectUzivateleRepository(\UzivateleRepository $uzivateleRepository)
@@ -33,8 +27,8 @@ class AktualityPresenter extends BasePresenter
     public function renderDefault($page = 1)
     {
         $paginator = new Paginator();
-        $paginator->itemCount = $this->articlesRepository->count();
-        $paginator->itemsPerPage = 15;
+        $paginator->itemCount = $this->strankyRepository->count();
+        $paginator->itemsPerPage = 5;
         $paginator->page = $page;
 
         if ($paginator->page !== $page)
@@ -44,23 +38,21 @@ class AktualityPresenter extends BasePresenter
 
         $this->template->page = $page;
         $this->template->paginator = $paginator;
-        $this->template->articles = $this->articlesRepository->fetchAllFront($paginator);
+        $this->template->pages = $this->strankyRepository->fetchAllFront($paginator);
         $this->template->authors = $this->uzivateleRepository->fetchAllFront();
-
-
     }
 
     public function renderDetail($id = 1, $page)
     {
-
-        $this->template->article = $this->articlesRepository->getById($id);
+        $this->template->page_db = $this->strankyRepository->getById($id);
         $this->template->page = $page;
         $this->template->authors = $this->uzivateleRepository->fetchAllFront();
 
-        if(!$this->template->article){
-            $this->template->article = 0;
+        if(!$this->template->page_db){
+            $this->template->page_db = 0;
         }
 
     }
+
 
 }

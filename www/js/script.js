@@ -25,10 +25,6 @@ $(function(){
 
 
 
-$(document).ready(function() {
-    $('tip').tooltip();
-});
-
 $(function(){
     $("[data-tooltip]").tooltip({ html: true });
     $(".alert").alert();
@@ -36,6 +32,9 @@ $(function(){
         return confirm($(this).data('confirm'));
     });
 });
+
+$('#tool').tooltip();
+$('#tool2').tooltip();
 
 $(document).ready(function(){
     $('.status').click(function() { $('.arrow').css("left", 0);});

@@ -23,6 +23,7 @@ nette:
 services:
 	aktuality: AktualityRepository
 	users: UzivateleRepository
+	pages: StrankyRepository
 	ip: IpRepository
 	- App\Model\UserManager
 	- App\RouterFactory

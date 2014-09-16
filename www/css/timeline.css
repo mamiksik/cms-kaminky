@@ -373,3 +373,12 @@ body {
     }
 
 }
+
+
+.dinamic-page{
+    width: 100% !important;
+}
+
+.timeline > li > .dinamic-page:before, .timeline > li > .dinamic-page:after{
+    display: none !important;
+}

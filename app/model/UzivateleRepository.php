@@ -10,6 +10,12 @@ class UzivateleRepository extends Repository {
             ->order('username DESC');
     }
 
+    public function fetchAllFront()
+    {
+        return $this->connection->table('users')
+            ->order('id DESC');
+    }
+
     public function count()
     {
         return $this->connection->table('users')

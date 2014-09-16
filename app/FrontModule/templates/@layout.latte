@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <script src="{$basePath}/js/jquery.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -44,12 +44,12 @@
         </h1><!--//logo-->
         <div class="info col-md-8 col-sm-8">
             <br>
-
             <div class="contact pull-right">
-                <p class="phone"><i class="fa fa-phone"></i> 0800 123 4567</p>
 
-                <p class="email"><i class="fa fa-envelope "></i> <a href="#">xxx@website.com</a></p>
-            </div>
+                <button type="button" class="btn info-head" id="tool" data-toggle="tooltip" data-placement="top" title="e-mail na školu"><i class="fa fa-envelope "></i> <a href="#">xxx@website.com</a></button>
+                <button type="button" class="btn info-head" id="tool2" data-toggle="tooltip" data-placement="top" title="Číslo do kanceláře"><i class="fa fa-phone"></i> 0800 123 4567</button>
+
+         </div>
             <!--//contact-->
         </div>
         <!--//info-->
@@ -77,8 +77,9 @@
                 <li><a n:href="Homepage:default">O nás</a></li>
                 <li><a n:href="Aktuality:default">Aktuality</a></li>
                 <li><a href="#">Kontakty</a></li>
+                <li><a href="#">Školní družina</a></li>
 
-                <li class="dropdown">
+              <!--  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Škola<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Organizace školního roku</a></li>
@@ -102,16 +103,33 @@
                         <li><a href="#">Soutěže</a></li>
                         <li><a href="#">Školská rada</a></li>
                     </ul>
-                </li>
+                </li>-->
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Další <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Organizace školního roku</a></li>
+                        <li><a href="#">Dokumenty školy</a></li>
+                        <li><a href="#">Prevence</a></li>
+                        <li><a href="#">Koncepční záměry školy</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">Pro rodiče</a></li>
+                        <li><a href="#">Formuláře</a></li>
+                        <li><a href="#">Omlouvání žáků</a></li>
+                        <li><a href="#">Zápis do 1. ročníku</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Odklad školní docházky</a></li>
+                        <li><a href="#">Aktivity školy</a></li>
+                        <li><a href="#">Klíčové aktivity</a></li>
+                        <li><a href="#">Ze života školy</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Akce z minulých školních roků</a></li>
+                        <li><a href="#">Projekty</a></li>
+                        <li><a href="#">Školní časopis</a></li>
+                        <li><a href="#">Soutěže</a></li>
+                        <li><a href="#">Školská rada</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">E-učitel</a></li>
                     </ul>
                 </li>
             </ul>
@@ -124,9 +142,8 @@
 
 <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
 
+
 <div class="flicker-example" data-block-text="False" id="rslider">
-
-
     <ul>
 
         <li data-background="http://www.colehealth.com/blog/wp-content/uploads/2013/08/ET00101-IMG06.jpg"></li>
@@ -136,10 +153,12 @@
         <li data-background="http://www.colehealth.com/blog/wp-content/uploads/2013/08/ET00101-IMG06.jpg"></li>
 
     </ul>
-
 </div>
 
 {include content}
+<div>
+<div class="wave"></div>
+</div>
 
 <footer>
     <div class="container slide-text">
@@ -171,13 +190,17 @@
         });
     </script>
     <script src="{$basePath}/js/jquery.js"></script>
-    <script src="{$basePath}/js/netteForms.js"></script>
-    <script src="{$basePath}/js/main.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <script src="{$basePath}/js/slider/jquery-slider.min.js"></script>
     <script src="{$basePath}/js/slider/modernizr.min.js"></script>
     <script src="{$basePath}/js/slider/jquery-finger.min.js"></script>
     <script src="{$basePath}/js/slider/flickerplate.min.js"></script>
+
+    <script src="{$basePath}/js/netteForms.js"></script>
+    <script src="{$basePath}/js/main.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <script src="{$basePath}/js/script.js"></script>
 
 {/block}

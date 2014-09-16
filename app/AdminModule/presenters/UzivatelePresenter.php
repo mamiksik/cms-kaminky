@@ -9,9 +9,7 @@ use Nette,
     Nette\Application as NA;
 
 
-/**
- * Homepage presenter.
- */
+
 class UzivatelePresenter extends SecuredPresenter
 {
     /**
@@ -154,15 +152,24 @@ class UzivatelePresenter extends SecuredPresenter
 
     //provádí smazání
     public function deleteFormSubmitted(Form $form) {
-        if ($this->user->id == $this->getParam('id')) {
+
+        $adminCount = $this->uzivateleRepository->countByKey('role', 'admin');
+
+        if ($this->user->id == $this->getParam('id'))
+        {
 
             $this->flashMessage('Chyba, nejde smazat vlastní účet', 'danger');
             $this->redirect('Uzivatele:default');
 
         }
+        elseif($adminCount <= 1)
+        {
+            $this->flashMessage('Chyba, nejde smazat všechny administrátorské účty', 'danger');
+            $this->redirect('Uzivatele:default');
+        }
         elseif($form['delete']->isSubmittedBy())
         {
-            $this->uzivateleRepository->deleteById($this->getParam('id'));
+           // $this->uzivateleRepository->deleteById($this->getParam('id'));
 
             $this->flashMessage('Uživatel byl smazán.', 'success');
             $this->redirect('Uzivatele:default');

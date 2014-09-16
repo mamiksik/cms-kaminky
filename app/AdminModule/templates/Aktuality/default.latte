@@ -1,0 +1,22 @@
+{block content}
+<div class="container">
+    <div class="page-header">
+        {block title}  <h1>Aktuality{/block}</h1>
+    </div>
+    {include paginator, paginator => $paginator}
+
+    <div class="panel panel-default" n:foreach="$articles as $article">
+        <div class="panel-heading">
+            <h3 class="panel-title">{$article->name} -  <i class="fa fa-user"></i> {$authors[$article->author_id]->realname} <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}</h3>
+        </div>
+        <div class="panel-body">
+            {$article->content|truncate:400}
+            <br>
+            <a n:href="edit $article->id, $page" class="btn btn-success">Editovat</a>
+            <a n:href="delete $article->id" class="btn btn-danger">Smazat</a>
+        </div>
+    </div>
+
+    {include paginator, paginator => $paginator}
+</div>
+{/block}

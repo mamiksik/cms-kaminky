@@ -1,0 +1,36 @@
+{block content}
+    <div class="container-fluid timeline-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="text-center"> Aktuality - Timeline</h2>
+                    {include paginator, paginator => $paginator}
+
+                    <ul class="timeline">
+                        {foreach $pages as $page}
+
+                                <li class="timeline-inverted">
+                                   <div class="timeline-panel dinamic-page">
+                                        <div class="timeline-header">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <a n:href="detail $page->id, $page"><h2>{$page->name}</h2></a>
+                                                    <i class="fa fa-user"></i> {$authors[$page->author_id]->realname}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>
+                                                {$page->content|truncate:400}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                        {/foreach}
+                    </ul>
+                    {include paginator, paginator => $paginator}
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}

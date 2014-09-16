@@ -6,7 +6,7 @@
                 <li class=""><a href="{plink default $page}">Zpět na Aktiality</a></li>
             </ul>
         </div>
-        {if $article == "0"}
+        {if $page_db == "0"}
             <img src="http://www.destructoid.com/elephant/ul/111835-ms.jpg">
             <div class="alert alert-danger" role="alert">
                 <a href="#" class="alert-link">Jejda, to co hledáte tu není</a>
@@ -14,23 +14,20 @@
         {else}
             <ul class="timeline">
                 <li class="timeline-inverted">
-                    <div class="timeline-badge primary"><a><span class="circle">{$article->created_at|date:'%e.'}<br><span class="mounth">{$article->created_at|date:'%b'}</span></span></a></div>
-                    <div class="timeline-panel">
+                    <div class="timeline-panel dinamic-page">
                         <div class="timeline-header">
                             <div class="row">
                                 <div class="col-xs-8">
-                                    <h2>{$article->name}</h2>
-                                    <i class="fa fa-user"></i>  {$authors[$article->author_id]->realname}     <i
-                                            class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
+                                    <h2>{$page_db->name}</h2>
+                                    <i class="fa fa-user"></i> {$authors[$page_db->author_id]->realname}
                                 </div>
                             </div>
                         </div>
                         <div class="timeline-body">
                             <p>
-                                {$article->content}
+                                {$page_db->content|truncate:400}
                             </p>
                         </div>
-
                     </div>
                 </li>
 
@@ -38,10 +35,10 @@
 
         {/if}
 
-         <div class="text-center">
+        <div class="text-center">
             <ul class="pager">
                 <li class=""><a href="{plink default $page}">Zpět na Aktiality</a></li>
-           </ul>
+            </ul>
         </div>
     </div>
 </div>

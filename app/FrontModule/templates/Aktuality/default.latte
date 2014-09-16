@@ -17,7 +17,7 @@
                                     <div class="row">
                                         <div class="col-xs-8">
                                             <a n:href="detail $article->id, $page"><h2>{$article->name}</h2></a>
-                                            <i class="fa fa-user"></i> {$article->author}    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
+                                            <i class="fa fa-user"></i> {$authors[$article->author_id]->realname} <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                             <div class="row">
                                                 <div class="col-xs-8">
                                                     <a n:href="detail $article->id, $page"><h2>{$article->name}</h2></a>
-                                                    <i class="fa fa-user"></i> {$article->author}    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
+                                                    <i class="fa fa-user"></i> {$authors[$article->author_id]->realname}    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
                                                 </div>
                                             </div>
                                         </div>
