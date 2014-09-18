@@ -46,8 +46,14 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         {if $user->isInRole('admin')}
-                        <li {ifCurrent uzivatele:default}class="active"{/ifCurrent}> <a n:href="uzivatele:default">Uživatelé(can see only admin)</a></li>
+                        <li {ifCurrent uzivatele:default}class="active"{/ifCurrent}> <a n:href="uzivatele:default">Uživatelé</a></li>
                         {/if}
+
+                        {if $user->isInRole('admin') || $user->isInRole('editor') || $user->isInRole('publisher')}
+                            <li {ifCurrent Aktuality:default}class="active"{/ifCurrent}> <a n:href="Aktuality:default">Aktuality</a></li>
+                        {/if}
+
+
                         <li><a n:href="Sign:out">Odhlásit</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

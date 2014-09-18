@@ -38,6 +38,22 @@ class AktualityRepository extends Repository {
             ->order('created_at DESC');
     }
 
+    public function countMy($id)
+    {
+        return $this->connection->table('articles')
+        ->where('author_id', $id)
+        ->count("*");
+    }
+
+
+    public function fetchAllMyAdmin($paginator, $author_id)
+    {
+        return $this->connection->table('articles')
+            ->limit($paginator->getLength(), $paginator->getOffset())
+            ->where('author_id', $author_id)
+            ->order('created_at DESC');
+    }
+
     public  function  deleteById($id)
     {
         return $this->connection->table('articles')

@@ -7,7 +7,17 @@
 
     <div class="panel panel-default" n:foreach="$articles as $article">
         <div class="panel-heading">
-            <h3 class="panel-title">{$article->name} -  <i class="fa fa-user"></i> {$authors[$article->author_id]->realname} <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}</h3>
+            <h3 class="panel-title">{$article->name} -
+
+                {if isset($article->ref("users", "author_id")->realname)}
+                    <i class="fa fa-user"></i>
+                    {$article->ref("users", "author_id")->realname}
+                {else}
+                    <span class="label label-danger">Autor nenalezen</span>
+
+                {/if}
+
+                <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}</h3>
         </div>
         <div class="panel-body">
             {$article->content|truncate:400}

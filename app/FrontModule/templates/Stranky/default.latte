@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2 class="text-center"> Aktuality - Timeline</h2>
+                    <h2 class="text-center"> Přehled stránek </h2>
                     {include paginator, paginator => $paginator}
 
                     <ul class="timeline">
@@ -15,7 +15,6 @@
                                             <div class="row">
                                                 <div class="col-xs-8">
                                                     <a n:href="detail $page->id, $page"><h2>{$page->name}</h2></a>
-                                                    <i class="fa fa-user"></i> {$authors[$page->author_id]->realname}
                                                 </div>
                                             </div>
                                         </div>

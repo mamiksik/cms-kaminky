@@ -20,8 +20,14 @@
                             <div class="row">
                                 <div class="col-xs-8">
                                     <h2>{$article->name}</h2>
-                                    <i class="fa fa-user"></i>  {$authors[$article->author_id]->realname}     <i
-                                            class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
+
+                                    {if isset($article->ref("users", "author_id")->realname)}
+                                        <i class="fa fa-user"></i>
+                                        {$article->ref("users", "author_id")->realname}
+
+                                    {/if}
+
+                                    <i class="fa fa-calendar"></i> {$article->created_at|date:'%d. %m. %Y'}
                                 </div>
                             </div>
                         </div>

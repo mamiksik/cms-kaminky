@@ -18,4 +18,8 @@ $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 
 $container = $configurator->createContainer();
 
+Kdyby\Replicator\Container::register();
+MultipleFileUpload\MultipleFileUpload::register();
+
+
 return $container;

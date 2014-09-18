@@ -24,7 +24,11 @@ services:
 	aktuality: AktualityRepository
 	users: UzivateleRepository
 	pages: StrankyRepository
+	images: ImagesRepository
 	ip: IpRepository
 	- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
+
+extensions:
+    replicator: Kdyby\Replicator\DI\ReplicatorExtension

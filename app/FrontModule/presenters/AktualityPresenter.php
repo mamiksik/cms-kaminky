@@ -15,25 +15,20 @@ use \Nette,
 class AktualityPresenter extends BasePresenter
 {
 
-    public $articlesRepository;
-    public $uzivateleRepository;
+    public $aktualityRepository;
     public $error;
 
 
     public function injectAktualityRepository(\AktualityRepository $aktualityRepository)
     {
-        $this->articlesRepository = $aktualityRepository;
+        $this->aktualityRepository = $aktualityRepository;
     }
 
-    public function injectUzivateleRepository(\UzivateleRepository $uzivateleRepository)
-    {
-        $this->uzivateleRepository = $uzivateleRepository;
-    }
 
     public function renderDefault($page = 1)
     {
         $paginator = new Paginator();
-        $paginator->itemCount = $this->articlesRepository->count();
+        $paginator->itemCount = $this->aktualityRepository->count();
         $paginator->itemsPerPage = 15;
         $paginator->page = $page;
 
@@ -44,18 +39,15 @@ class AktualityPresenter extends BasePresenter
 
         $this->template->page = $page;
         $this->template->paginator = $paginator;
-        $this->template->articles = $this->articlesRepository->fetchAllFront($paginator);
-        $this->template->authors = $this->uzivateleRepository->fetchAllFront();
-
+        $this->template->articles = $this->aktualityRepository->fetchAllFront($paginator);
 
     }
 
     public function renderDetail($id = 1, $page)
     {
 
-        $this->template->article = $this->articlesRepository->getById($id);
+        $this->template->article = $this->aktualityRepository->getById($id);
         $this->template->page = $page;
-        $this->template->authors = $this->uzivateleRepository->fetchAllFront();
 
         if(!$this->template->article){
             $this->template->article = 0;

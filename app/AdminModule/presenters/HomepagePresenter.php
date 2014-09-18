@@ -11,10 +11,18 @@ use Nette,
  */
 class HomepagePresenter extends SecuredPresenter
 {
+    public $aktualityRepository;
 
-	public function renderDefault()
+
+    public function injectAktualityRepository(\AktualityRepository $aktualityRepository)
+    {
+        $this->aktualityRepository = $aktualityRepository;
+    }
+
+
+    public function renderDefault()
 	{
-		$this->template->anyVariable = 'any value';
+        $this->template->articleCount = $this->aktualityRepository->countMy($this->user->id);
 	}
 
 }

@@ -33,6 +33,10 @@ class UzivatelePresenter extends SecuredPresenter
         $paginator->itemsPerPage = 20;
         $paginator->page = $page;
 
+
+        if($this->user->isInRole('admin'))
+        {
+
         if ($paginator->page !== $page)
         {
             $this->redirect('this', array('page' => $paginator->page));
@@ -42,6 +46,13 @@ class UzivatelePresenter extends SecuredPresenter
         $this->template->paginator = $paginator;
 
 		$this->template->users = $this->uzivateleRepository->fetchAllAdmin($paginator);
+
+        }
+        else
+        {
+            $this->flashMessage('Do této části webu nemáš přístup!', 'warning');
+            $this->redirect('Homepage:default');
+        }
 	}
 
     public function renderDelete($id = 1)
@@ -49,7 +60,8 @@ class UzivatelePresenter extends SecuredPresenter
         $this->template->userDelete = $this->uzivateleRepository->getById($id);
 
         if (!$this->template->userDelete) {
-            throw new NA\BadRequestException('Záznam nebyl nalezen');
+            $this->flashMessage('Uživatel nebyl nalezen', 'warning');
+            $this->redirect('Uzivatele:default');
         }
     }
 
@@ -70,8 +82,8 @@ class UzivatelePresenter extends SecuredPresenter
              ->setRequired('Vyplň prosím pole');
 
         $role = array(
-            'registred' => 'Učitel',
-            'editor' => 'Redaktor',
+            'publisher' => 'Učitel',
+            'editor' => 'Ředitel',
             'admin'  => 'Admin',
         );
 
@@ -130,7 +142,8 @@ class UzivatelePresenter extends SecuredPresenter
             $row = iterator_to_array($this->uzivateleRepository->getById($id));
             if (!$row)
             {
-                throw new NA\BadRequestException('Uživatel nebyl nalezen');
+                $this->flashMessage('Uživatel nebyl nalezen', 'warning');
+                $this->redirect('Uzivatele:default');
             }
             $this['userForm']->setDefaults($row);
 
@@ -158,13 +171,13 @@ class UzivatelePresenter extends SecuredPresenter
         if ($this->user->id == $this->getParam('id'))
         {
 
-            $this->flashMessage('Chyba, nejde smazat vlastní účet', 'danger');
+            $this->flashMessage('Chyba, nejde smazat vlastní účet', 'warning');
             $this->redirect('Uzivatele:default');
 
         }
         elseif($adminCount <= 1)
         {
-            $this->flashMessage('Chyba, nejde smazat všechny administrátorské účty', 'danger');
+            $this->flashMessage('Chyba, nejde smazat všechny administrátorské účty', 'warning');
             $this->redirect('Uzivatele:default');
         }
         elseif($form['delete']->isSubmittedBy())

@@ -12,18 +12,10 @@ use Nette,
 class HomepagePresenter extends BasePresenter
 {
 
-/*
-    public $imageRepository;
-
-
-    public function injectImageRepository(\ImageRepository $imageRepository)
-    {
-        $this->imageRepository = $imageRepository;
-    }*/
 
 	public function renderDefault()
 	{
-		$this->template->anyVariable = 'any value';
+		//$this->template->articleCount = $this->aktualityRepository->countMy($this->user->id);
 	}
 
 }
