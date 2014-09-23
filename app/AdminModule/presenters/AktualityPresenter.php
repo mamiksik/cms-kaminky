@@ -34,6 +34,7 @@ class AktualityPresenter extends SecuredPresenter
         $this->imagesRepository = $imagesRepository;
     }
 
+
     //
     //RENDER
     //
@@ -58,6 +59,7 @@ class AktualityPresenter extends SecuredPresenter
         if($this->user->isInRole('admin') || $this->user->isInRole('editor'))
         {
             $this->template->articles = $this->aktualityRepository->fetchAllAdmin($paginator);
+
         }
         elseif($this->user->isInRole('publisher'))
         {
@@ -166,7 +168,7 @@ class AktualityPresenter extends SecuredPresenter
 
         }, 0);*/
 
-        $form->addMultipleFileUpload("image","Upload field 1", /*max num. of files*/ 20);
+        $form->addMultipleFileUpload("image","", /*max num. of files*/ 20);
 
         $form->addSubmit('save', 'Uložit')
             ->setAttribute('class', 'default')

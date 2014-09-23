@@ -15,12 +15,22 @@
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 
     <script src="{$basePath}/js/jquery.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{$basePath}/css/style-admin.css">
 
-	{block head}{/block}
+    <script src="{$basePath}/js/jquery.js"></script>
+    <script src="{$basePath}/js/netteForms.js"></script>
+    <script src="{$basePath}/js/main.js"></script>
+
+    <script type="text/JavaScript" src="{$basePath}/js/nette.ajax.js"></script>
+
+    <script type="text/JavaScript" src="{$basePath}/MultipleFileUpload/MFUFallbackController.js"></script>
+    {=MultipleFileUpload\MultipleFileUpload::getHead()|noescape}
+
+
+    {block head}{/block}
 </head>
 
 <body>
@@ -28,7 +38,10 @@
 
 
     {if $user->loggedIn}
-        <nav class="navbar navbar-default navbar" role="navigation">
+
+
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -46,19 +59,27 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         {if $user->isInRole('admin')}
-                        <li {ifCurrent uzivatele:default}class="active"{/ifCurrent}> <a n:href="uzivatele:default">Uživatelé</a></li>
+                        <li {ifCurrent uzivatele:default}class="active"{/ifCurrent}> <a n:href="uzivatele:default"><i class="fa fa-users"></i> <span class="menu-hide"> Uživatelé</span></a></li>
                         {/if}
 
                         {if $user->isInRole('admin') || $user->isInRole('editor') || $user->isInRole('publisher')}
-                            <li {ifCurrent Aktuality:default}class="active"{/ifCurrent}> <a n:href="Aktuality:default">Aktuality</a></li>
+                            <li {ifCurrent Aktuality:default}class="active"{/ifCurrent}> <a n:href="Aktuality:default"><i class="fa fa-file-o"></i> <span class="menu-hide"> Aktuality</span></a></li>
                         {/if}
 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-1x"> <span class="menu-hide"> {$user->identity->realname}</span></i> <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a n:href="Sign:out"><i class="fa fa-sign-out"></i> Odhlásit</a></li>
+                            </ul>
+                        </li>
 
-                        <li><a n:href="Sign:out">Odhlásit</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+
+
+
         <div class="container">
             <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
         </div>
@@ -70,8 +91,18 @@
 
 	{block scripts}
 	<script src="{$basePath}/js/jquery.js"></script>
-	<script src="{$basePath}/js/netteForms.js"></script>
-	<script src="{$basePath}/js/main.js"></script>
+	    <script src="{$basePath}/js/netteForms.js"></script>
+	    <script src="{$basePath}/js/main.js"></script>
+        <script src="{$basePath}/js/main.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <script>
+            $('#myTab a').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            })
+        </script>
+
 	{/block}
 </body>
 </html>

@@ -24,8 +24,9 @@
                 <td>{$user->email}</td>
                 <td>{$user->role}</td>
                 <td>
-                    <a n:href="delete, $user->id" class="btn btn-danger" >Smazat</a>
-                    <a n:href="edit, $user->id" class="btn btn-warning" >Upravit</a>
+                    <a n:href="edit, $user->id" class="btn btn-warning" ><i class="fa fa-pencil-square-o"></i> Upravit</a>
+
+                    <a n:href="delete, $user->id" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat</a>
                 </td>
             </tr>
         {/foreach}
