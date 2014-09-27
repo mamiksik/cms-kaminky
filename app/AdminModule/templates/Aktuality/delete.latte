@@ -1,3 +1,25 @@
 {block content}
 
+    <div class="container">
+        <div class="page-header">
+            {block title}  <h1>Aktualita - Smazat {/block}</h1>
+        </div>
+
+
+
+        {if $article}
+            <p>Opravdu chcete smazat aktualitu ‘{$article->name}’?</p>
+
+            {form deleteForm class=>'form-signin', role=>'form'}
+            {input delete class=>'btn btn-danger'}
+            {input cancel, class=>'btn btn-info '}
+            {/form}
+
+
+
+        {else}
+            <p>Nemůžu nalézt záznam</p>
+        {/if}
+    </div>
+
 {/block}

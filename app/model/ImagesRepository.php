@@ -2,12 +2,12 @@
 
 class ImagesRepository extends Repository {
 
-    public  function deleteByIdHome($id_clanku)
+    /*public  function deleteByIdHome($id_clanku)
     {
         return $this->connection->table('images')
             ->where('id_bytu', $id_clanku)
             ->delete();
-    }
+    }*/
 
     public  function insertImage($values)
     {
@@ -18,7 +18,7 @@ class ImagesRepository extends Repository {
     public function fetchById($id_clanku)
     {
         return $this->connection->table('images')
-            ->where('id_bytu', $id_clanku)
+            ->where('id_record', $id_clanku)
             ->order('id ASC');
     }
 

@@ -35,6 +35,18 @@
                             <p>
                                 {$article->content}
                             </p>
+
+                            {if $images}
+                            <div class="row">
+                                <div n:foreach="$images as $image" class="col-md-3">
+                                    <a class="thumbnail" href="{$basePath}{$image->path_real}"
+                                       data-lightbox="{$article->name}">
+                                        <img class="" src="{$basePath}{$image->path_preview}" alt="{$article->name}"/>
+                                    </a>
+                                </div>
+                            </div>
+                            {/if}
+
                         </div>
 
                     </div>

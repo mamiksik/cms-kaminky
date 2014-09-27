@@ -21,8 +21,13 @@ body{
 .container{
     background: #ffffff;
     border: 1px solid #bdc0c4;
-    border-top: 0;
+    /*border-top: 0;*/
+    padding-bottom: 15px;
 }
+
+/*.alert-border{
+    border-top: 1px;
+}*/
 
 .page-header{
     border-bottom: 1px solid #bdc0c4;
@@ -66,7 +71,16 @@ body{
 
 .article-head{
    /* height: 60px;*/
-    background: #4ba568;
+    background: #d4ced4;
+}
+
+.alert{
+    margin-top:20px;
+}
+
+.btn-aktuality{
+   margin: 10px;
+    margin-left: 0;
 }
 
 @media (min-width: 0) {
@@ -76,6 +90,10 @@ body{
         padding-left:0;
         padding-top: 70px;
     }
+
+    /*.pager{
+        padding: 20px;
+    }*/
 
 }
 

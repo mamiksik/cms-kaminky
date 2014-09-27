@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 
     var $window = $(window);
     var scrollTime = 0.1;
@@ -19,11 +19,11 @@ $(function(){
         });
 
     });
-});
+});*/
 
 
 
-
+/*
 
 $(function(){
     $("[data-tooltip]").tooltip({ html: true });
@@ -31,10 +31,15 @@ $(function(){
     $("[data-confirm]").on('click', function(){
         return confirm($(this).data('confirm'));
     });
-});
+});*/
 
-$('#tool').tooltip();
-$('#tool2').tooltip();
+$('a').tooltip();
+/*$('.tool2').tooltip();
+
+$("* [rel='tooltip']").tooltip({
+    html: true,
+    placement: 'bottom'
+});*/
 
 $(document).ready(function(){
     $('.status').click(function() { $('.arrow').css("left", 0);});

@@ -80,9 +80,11 @@
 
 
 
+        {if $flashes}
         <div class="container">
             <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
         </div>
+        {/if}
 
         {include content}
 
@@ -93,9 +95,9 @@
 	<script src="{$basePath}/js/jquery.js"></script>
 	    <script src="{$basePath}/js/netteForms.js"></script>
 	    <script src="{$basePath}/js/main.js"></script>
-        <script src="{$basePath}/js/main.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="{$basePath}/js/script.js"></script>
         <script>
             $('#myTab a').click(function (e) {
                 e.preventDefault()

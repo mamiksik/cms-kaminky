@@ -142,8 +142,18 @@ body {
     margin-top: 0;
     color: inherit;
 }
+/*
+.timeline-body{
+    background: #fff;
+    padding:20px;
+    margin-bottom: 0;
+    background: #fff;
+    text-align: justify;
+}*/
+
 .timeline-body > p,
-.timeline-body > ul {
+.timeline-body > ul,
+.timeline-body{
     padding:20px;
     margin-bottom: 0;
     background: #fff;

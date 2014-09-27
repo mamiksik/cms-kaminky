@@ -6,10 +6,15 @@
         {block title}  <h1>Aktuality{/block}</h1>
     </div>
 
-    <a n:href="add" class="btn btn-success btn-lg">Napsat nový článek</i></a>
+
 
     <div class="article-head col-md-12">
-        {include paginator, paginator => $paginator}
+
+        <div class="col-md-2">
+
+               <a n:href="add" data-placement="top" rel="tooltip" title="Napsat nový článek"  class="btn btn-success btn-lg btn-aktuality"><i class="fa fa-file-text-o"></i> Napsat</a>
+
+        </div>
     </div>
 
     <div class="article col-md-12"  n:foreach="$articles as $article">
@@ -26,8 +31,9 @@
              </div>
         <div class="col-md-3 col-md-offset-3">
             {$article->created_at|date:'%d. %m. %Y'}
-            <a n:href="edit $article->id, $page" class="btn btn-success"><i class="fa fa-pencil-square-o fa-1x"></i></a>
-            <a n:href="delete $article->id" class="btn btn-danger"><i class="fa fa-trash fa-1x"></i></a>
+
+            <a n:href="edit $article->id, $page" class="btn btn-success" data-placement="top" rel="tooltip" title="Upravit článek"><i class="fa fa-pencil-square-o fa-1x"></i></a>
+            <a n:href="delete $article->id" class="btn btn-danger" data-placement="top" rel="tooltip"   title="Smazat článek"><i class="fa fa-trash fa-1x"></i></a>
        </div>
 
     </div>

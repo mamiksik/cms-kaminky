@@ -30,7 +30,10 @@ class AktualityRepository extends Repository {
             ->fetch();
     }
 
-    //admin
+    //
+    //ADMIN
+    //
+
     public function fetchAllAdmin($paginator)
     {
         return $this->connection->table('articles')
@@ -72,6 +75,20 @@ class AktualityRepository extends Repository {
             ->where("id", $id)
             ->Update($values);
     }
+
+    public function controlByName($name)
+    {
+        return $this->connection->table('articles')
+            ->where("name", $name);
+    }
+
+    public function getByKey($key, $val)
+    {
+        return $this->connection->table('articles')
+            ->where($key, $val)
+            ->fetch();
+    }
+
     //admin end
 
 }

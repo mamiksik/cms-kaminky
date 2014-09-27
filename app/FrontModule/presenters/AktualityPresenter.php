@@ -18,11 +18,19 @@ class AktualityPresenter extends BasePresenter
     public $aktualityRepository;
     public $error;
 
+    public $imagesRepository;
+
 
     public function injectAktualityRepository(\AktualityRepository $aktualityRepository)
     {
         $this->aktualityRepository = $aktualityRepository;
     }
+
+    public function injectImagesRepository(\ImagesRepository $imagesRepository)
+    {
+        $this->imagesRepository = $imagesRepository;
+    }
+
 
 
     public function renderDefault($page = 1)
@@ -48,6 +56,7 @@ class AktualityPresenter extends BasePresenter
 
         $this->template->article = $this->aktualityRepository->getById($id);
         $this->template->page = $page;
+        $this->template->images = $this->imagesRepository->fetchById($id);
 
         if(!$this->template->article){
             $this->template->article = 0;
