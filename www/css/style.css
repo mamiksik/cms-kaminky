@@ -249,6 +249,10 @@ footer{
     text-align: center;
 }
 
+.thumbnail{
+    border-radius: 0;
+}
+
 .slide-text .fa{
     padding-top: 15px;
 }

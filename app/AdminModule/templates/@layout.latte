@@ -19,6 +19,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{$basePath}/css/style-admin.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/lightbox.css">
 
     <script src="{$basePath}/js/jquery.js"></script>
     <script src="{$basePath}/js/netteForms.js"></script>
@@ -28,6 +29,15 @@
 
     <script type="text/JavaScript" src="{$basePath}/MultipleFileUpload/MFUFallbackController.js"></script>
     {=MultipleFileUpload\MultipleFileUpload::getHead()|noescape}
+
+    <script type="text/javascript" src="{$basePath}/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+    </script>
 
 
     {block head}{/block}
@@ -97,6 +107,7 @@
 	    <script src="{$basePath}/js/main.js"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="{$basePath}/js/lightbox.min.js"></script>
         <script src="{$basePath}/js/script.js"></script>
         <script>
             $('#myTab a').click(function (e) {

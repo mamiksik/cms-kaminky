@@ -1,3 +1,63 @@
 {block content}
-    {control aktualityForm}
+<div class="container">
+    <div class="page-header">
+        {block title}  <h1>Aktuality- Editace{/block}</h1>
+    </div>
+
+    {form aktualityForm class=>'form-horizontal', role=>'form'}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Název:</label>
+
+            <div class="col-sm-10">
+                {input name class=>'form-control'}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Obsah:</label>
+
+            <div class="col-sm-10">
+                {input content class=>'form-control'}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Schováno:</label>
+
+            <div class="col-sm-10">
+                {input hide class=>'form-control'}
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Galerie:</label>
+
+            <div class="col-sm-10">
+                {foreach $form['image_edit']->containers as $id => $image_edit}
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="thumbnail" href="{$basePath}{$images[$id]->path_real}" data-lightbox="{$id}">
+                                <img class="" src="{$basePath}{$images[$id]->path_preview}" alt="{$id}"/>
+                            </a>
+
+                            <div class="caption">
+                                <h3>  {label image_edit-$id-id_record /}</h3>
+                                {input image_edit-$id-remove class=>'btn btn-danger btn-image'}
+                            </div>
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Přidat do galerie:</label>
+
+            <div class="col-sm-10">
+                {input image}
+            </div>
+        </div>
+    {input save class=>'btn btn-success'}
+    {input cancel class=>'btn btn-info '}
+
+    {/form}
+
+</div>
 {/block}

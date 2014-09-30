@@ -33,6 +33,14 @@ body{
     border-bottom: 1px solid #bdc0c4;
 }
 
+.thumbnail{
+    border-radius: 0;
+}
+
+.btn-image{
+    width: 100%;
+}
+
 .article{
     background: #ffffff;
    /* border: 1px solid #bdc0c4;*/

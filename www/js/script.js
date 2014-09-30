@@ -34,6 +34,7 @@ $(function(){
 });*/
 
 $('a').tooltip();
+$('button').tooltip();
 /*$('.tool2').tooltip();
 
 $("* [rel='tooltip']").tooltip({

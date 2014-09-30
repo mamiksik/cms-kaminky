@@ -177,7 +177,7 @@ class AktualityPresenter extends SecuredPresenter
         $form->addTextArea('content', 'Obsah')
              ->setRequired("Všechna pole musí být vyplněna!");
 
-        $form->addCheckbox('hide', 'schovano');
+        $form->addCheckbox('hide', '');
 
         /*/////////////////////*/
         $presenter = $this;
@@ -368,11 +368,11 @@ class AktualityPresenter extends SecuredPresenter
                     $image = \Nette\Image::fromFile(WWW_DIR . '/data/' . $file_name);
                     if ($image->getWidth() > $image->getHeight())
                     {
-                        $image->resize(140, NULL);
+                        $image->resize(200, NULL);
                     }
                     else
                     {
-                        $image->resize(NULL, 140);
+                        $image->resize(NULL, 200);
                     }
                    // $image->sharpen();
                     $image->save(WWW_DIR . '/data/thumbs/' . $file_name);
