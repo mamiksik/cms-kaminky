@@ -38,6 +38,7 @@ class SecuredPresenter extends BasePresenter {
 		if(!$this->user->isLoggedIn()) {
       if($this->user->getLogoutReason() === User::INACTIVITY) {
         $this->flashMessage('Byl jsi odhlášen, protože jsi nebyl dlouho aktivní.', 'warning');
+
       }
 
             $this->flashMessage('Pro vstup do této části webu se musíš přihlásit.', 'warning');

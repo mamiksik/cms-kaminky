@@ -96,6 +96,41 @@
         </div>
         {/if}
 
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Menu
+        </button>
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-lg modalBack" id="myModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                    class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Menu</h4>
+                    </div>
+                    <div class="modal-body row">
+                        {if $user->isInRole('admin')}
+                           <div class="col-md-3 menu-box"> <a n:href="uzivatele:default"><i
+                                            class="fa fa-users fa-5x"></i><br>  <span class="menu-hide"> Uživatelé</span></a></div>
+                        {/if}
+
+                        {if $user->isInRole('admin') || $user->isInRole('editor') || $user->isInRole('publisher')}
+                        <div class="col-md-3 menu-box">  <a n:href="Aktuality:default"><i
+                                            class="fa fa-file-o fa-5x"></i><br> <span class="menu-hide"> Aktuality</span></a></div>
+                        {/if}
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {include content}
 
     {/if}
@@ -113,6 +148,15 @@
             $('#myTab a').click(function (e) {
                 e.preventDefault()
                 $(this).tab('show')
+            })
+
+            /* blur on modal open, unblur on close */
+            $('#myModal').on('show.bs.modal', function () {
+                $('.container').addClass('blur');
+            })
+
+            $('#myModal').on('hide.bs.modal', function () {
+                $('.container').removeClass('blur');
             })
         </script>
 

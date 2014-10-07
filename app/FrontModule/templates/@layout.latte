@@ -19,6 +19,28 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+   <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            $("body").css("display", "none");
+
+            $("body").fadeIn(2000);
+
+            $("a").click(function(event){
+                event.preventDefault();
+                linkLocation = this.href;
+                $("body").fadeOut(1000, redirectPage);
+            });
+
+            function redirectPage() {
+                window.location = linkLocation;
+            }
+
+        });-->
+
+    </script>
 
     <link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -32,6 +54,8 @@
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/flickerplate.css">
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/timeline.css">
     <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
+
+
 
     {block head}{/block}
 </head>
@@ -140,6 +164,7 @@
         $(document).ready(function () {
             $('.flicker-example').flicker();
         });
+
     </script>
     <script src="{$basePath}/js/jquery.js"></script>
 

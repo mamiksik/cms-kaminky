@@ -274,7 +274,6 @@ class AktualityPresenter extends SecuredPresenter
                 {
                     $values[$k] = $v;
                 }
-
             }
 
             //ziskani id z url
@@ -284,7 +283,7 @@ class AktualityPresenter extends SecuredPresenter
             if ($id > 0)
             {
                 $this->aktualityRepository->updateById($id, $values);
-                $this->flashMessage('záznam byl upraven.');
+                $this->flashMessage('záznam byl upraven.', 'warning');
             }
             else
             {
@@ -294,9 +293,11 @@ class AktualityPresenter extends SecuredPresenter
 
                 if ($row == 0)
                 {
+                    $values['author_id'] = $this->user->identity->getId();
+
                     //vytvori a vlozi hodnoty
                     $this->aktualityRepository->insert($values);
-                    $this->flashMessage('záznam byl přidán.');
+                    $this->flashMessage('záznam byl přidán.', 'warning');
 
                     //ziska nove id
                     $id = $this->aktualityRepository->getbyKey('name', $values['name']);

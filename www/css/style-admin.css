@@ -196,5 +196,36 @@ body{
     }
 }
 
+.menu-box{
+    text-align: center;
+}
 
+.menu-box a{
+    color: #000000;
+}
+
+.menu-box a:hover{
+    text-decoration: none !important;
+    color: #D4CED4;
+}
+
+.modalBack{
+  /*  background: #000000;*/
+ /*   -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);*/
+   /* background-image: url("http://www.skolaservis.sk/wp-content/uploads/2013/09/Elementary-Classroom.jpg");*/
+}
+
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    
+    /*background-image: url("http://www.skolaservis.sk/wp-content/uploads/2013/09/Elementary-Classroom.jpg");*/
+}
 
